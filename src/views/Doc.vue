@@ -37,6 +37,7 @@
     setup() {
       const asideVisible = inject<Ref<boolean>>('asideVisible'); //get
       console.log('Doc aside 获取的 asideVisible 为：' + asideVisible.value);
+
       return {asideVisible}//v-if 需要return
     }
   }
@@ -67,5 +68,8 @@ aside {
       padding: 4px 0;
     }
   }
+}
+@media (max-width: 500px) {
+
 }
 </style>

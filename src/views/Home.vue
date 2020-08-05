@@ -6,7 +6,7 @@
             <h2>基于Vue3.0的UI框架</h2>
             <p class="actions ">
                 <a href="https://github.com/Suizhazha">Github</a>
-                <a href="">开始 </a>
+                <router-link to="/doc">开始</router-link>
             </p>
         </div>
     </div>

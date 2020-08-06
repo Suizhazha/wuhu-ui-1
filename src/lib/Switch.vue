@@ -1,9 +1,20 @@
 <template>
-    <button><span></span></button>
+    <button @click="toggle" :class="{checked}"><span></span></button>
 </template>
 
 <script lang="ts">
-  export default {};
+    import {ref} from 'vue'
+  export default {
+    setup(){
+      const checked = ref(false)
+      const toggle =()=>{
+        //checked已经是常量，不能取反，只能修改x的值
+        checked.value=!checked.value
+      }
+
+      return   {checked,toggle}
+    }
+  };
 </script>
 
 <style lang="scss" scoped>
@@ -13,7 +24,7 @@
         height: $h;
         width: $h*2;
         border: none;
-        background: blue;
+        background: grey;
         border-radius: $h/2;
         position: relative;
     }
@@ -25,8 +36,16 @@
         width: $h2;
         background: white;
         border-radius: $h2/2;
+        transition: left 250ms ;//通用秒数，也很好记
     }
-    button:hover > span{
+    button.checked{
+        background: blue;
+    }
+    button.checked > span{
         left: calc(100% - #{$h2} - 2px);
+    }
+    //取消button外黑框
+    button:focus{
+        outline: none;
     }
 </style>

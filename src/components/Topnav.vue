@@ -1,6 +1,6 @@
 <template>
     <div class="top-nav">
-        <div class="logo" @click ='toggleMenu'>LOGO</div>
+        <div class="logo" @click="toggleMenu">LOGO</div>
 
         <ul class="menu">
             <li>菜单1</li>
@@ -15,7 +15,7 @@
   export default {
     setup() {
       const asideVisible = inject<Ref<boolean>>('asideVisible'); //get
-      console.log('Topnav 获取的 asideVisible 为：' + asideVisible.value);
+
       const toggleMenu =() =>{
 
         //通过取反来改变asideVisible的值
@@ -32,7 +32,10 @@
         background: lightblue;
         display: flex;
         padding: 16px;
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         z-index: 10;
         justify-content: center;
         align-items: center;
@@ -51,7 +54,6 @@
             }
         }
         >.toggleAside{
-            display: inline-block;
             width: 24px;
             height: 24px;
             background: red;

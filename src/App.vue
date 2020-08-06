@@ -5,6 +5,7 @@
 
 <script lang="ts">
   import {ref,provide} from 'vue'
+  import {router} from './router';
 
 export default {
   name: "App",
@@ -20,6 +21,13 @@ setup(){
   //ctrl点击可查看其属性
   //如：function provide<T>(key: InjectionKey<T> | string, value: T)
   provide('asideVisible',asideVisible)//set
+
+  //路由切换
+  router.afterEach(()=>{
+    if (width<=500){
+      asideVisible.value = false
+    }
+  })
 }
 };
 </script>

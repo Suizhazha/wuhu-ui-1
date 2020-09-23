@@ -1,18 +1,33 @@
 <template>
    <button class="wuhu-button"
-   :class="{[`wuhu-theme-${theme}`]: theme}">
+   :class="classes">
      <slot/>
    </button>
 </template>
 
 <script lang="ts">
+import {computed} from 'vue'
 export default {
   props:{
     theme: {
       type:String,
       default:'button'
+    },
+    size:{
+      type:String,
+      default:'normal'
     }
-  }
+  },
+setup(props){
+    const {theme,size} = props
+   const classes = computed(()=>{
+return {
+  [`wuhu-theme-${theme}`]: theme,
+  [`wuhu-size-${size}`]: size
+    }
+   })
+  return {classes}
+}
 
 };
 </script>
@@ -50,6 +65,16 @@ $radius: 4px;
   }
   &::-moz-focus-inner {
     border: 0;
+  }
+  &.wuhu-size-big {
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px;
+  }
+  &.wuhu-size-small {
+    font-size: 12px;
+    height: 20px;
+    padding: 0 4px;
   }
 }
 </style>

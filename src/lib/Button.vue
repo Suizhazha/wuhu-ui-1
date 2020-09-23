@@ -1,6 +1,7 @@
 <template>
-   <button class="wuhu-button"
-   :class="classes">
+   <button class="wuhu-button" :class="classes"
+   :disabled="disabled"
+   >
      <slot/>
    </button>
 </template>
@@ -21,14 +22,20 @@ export default {
       type: String,
       default: "normal",
     },
+    disabled:{
+      type:Boolean,
+      default:false
+    },
+
   },
 setup(props){
-    const {theme,size,level} = props
+    const {theme,size,level,disabled} = props
    const classes = computed(()=>{
 return {
   [`wuhu-theme-${theme}`]: theme,
   [`wuhu-size-${size}`]: size,
   [`wuhu-level-${level}`]: level,
+  [`wuhu-disabled-${disabled}`]: disabled,
     }
    })
   return {classes}
@@ -44,6 +51,7 @@ $border-color: #d9d9d9;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey: grey;
 .wuhu-button {
   box-sizing: border-box;
   height: $h;
@@ -149,6 +157,21 @@ $red: red;
       &:focus {
         color: darken($red, 10%);
       }
+    }
+  }
+  &.wuhu-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.wuhu-theme-link, &.wuhu-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
     }
   }
 }

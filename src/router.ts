@@ -1,16 +1,8 @@
-// @ts-ignore
 import Home from './views/Home.vue'
-
-// @ts-ignore
 import Doc from './views/Doc.vue'
-
-// @ts-ignore
 import SwitchDemo from './components/SwitchDemo.vue';
-// @ts-ignore
 import ButtonDemo from './components/ButtonDemo.vue';
-// @ts-ignore
 import DialogDemo from "./components/DialogDemo.vue";
-// @ts-ignore
 import TabsDemo from "./components/TabsDemo.vue";
 
 

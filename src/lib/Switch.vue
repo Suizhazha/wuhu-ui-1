@@ -1,5 +1,5 @@
 <template>
-    <button @click="toggle" :class="{checked:value}">
+    <button class="wuhu-switch" @click="toggle" :class="{'wuhu-checked':value}">
         <span></span>
     </button>
 
@@ -24,10 +24,10 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
     $h: 22px;
     $h2: $h - 4px;
-    button {
+    .wuhu-switch {
         height: $h;
         width: $h*2;
         border: none;
@@ -46,7 +46,7 @@
             transition: all 250ms; //通用秒数，也很好记
         }
 
-        &.checked {
+        &.wuhu-checked {
             background: #1890ff;
 
             > span {
@@ -65,7 +65,7 @@
             }
         }
 
-        &.checked:active {
+        &.wuhu-checked:active {
             > span {
                 width: $h2 +4px;
                 margin-left: -4px;

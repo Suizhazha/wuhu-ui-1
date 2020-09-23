@@ -1,7 +1,6 @@
 <template>
    <button class="wuhu-button"
-   :class="`wuhu-theme-${theme}`"
-   >
+   :class="{[`wuhu-theme-${theme}`]: theme}">
      <slot/>
    </button>
 </template>

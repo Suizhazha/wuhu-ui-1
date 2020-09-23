@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 
-// @ts-ignore
-import App from "./App.vue"
+import './lib/wuhu.scss'
 import './index.scss'
+import App from "./App.vue"
 import {router} from './router';
 
 const app = createApp(App)

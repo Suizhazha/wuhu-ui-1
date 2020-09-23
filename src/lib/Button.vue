@@ -1,7 +1,7 @@
 <template>
    <button class="wuhu-button" :class="classes"
-   :disabled="disabled"
-   >
+   :disabled="disabled">
+     <span v-if="loading" class="wuhu-loadingIndicator"></span>
      <slot/>
    </button>
 </template>
@@ -26,16 +26,18 @@ export default {
       type:Boolean,
       default:false
     },
-
+    loading:{
+      type:Boolean,
+      default:false
+    }
   },
 setup(props){
-    const {theme,size,level,disabled} = props
+    const {theme,size,level,} = props
    const classes = computed(()=>{
 return {
   [`wuhu-theme-${theme}`]: theme,
   [`wuhu-size-${size}`]: size,
-  [`wuhu-level-${level}`]: level,
-  [`wuhu-disabled-${disabled}`]: disabled,
+  [`wuhu-level-${level}`]: level
     }
    })
   return {classes}
@@ -46,8 +48,8 @@ return {
 
 <style lang="scss">
 $h: 32px;
-$color: #333;
 $border-color: #d9d9d9;
+$color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
@@ -114,19 +116,16 @@ $grey: grey;
       background: $blue;
       color: white;
       border-color: $blue;
-
       &:hover,
       &:focus {
         background: darken($blue, 10%);
         border-color: darken($blue, 10%);
       }
     }
-
     &.wuhu-level-danger {
       background: $red;
       border-color: $red;
       color: white;
-
       &:hover,
       &:focus {
         background: darken($red, 10%);
@@ -174,6 +173,21 @@ $grey: grey;
       color: $grey;
     }
   }
+  > .wuhu-loadingIndicator{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: wuhu-spin 1s infinite linear;
+  }
+}
+@keyframes wuhu-spin {
+  0%{transform: rotate(0deg)}
+  100%{transform: rotate(360deg)}
 }
 
 </style>

@@ -29,7 +29,7 @@
 <script lang="ts">
 
 import Tab from './Tab.vue';
-import {ref, onMounted,onUpdated} from 'vue';
+import {ref, onMounted,watchEffect} from 'vue';
 
 export default {
   name: 'Tabs.vue',
@@ -55,7 +55,9 @@ export default {
     const navItems = ref<HTMLDivElement[]>([]);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
-    const x= () => {
+
+  onMounted(()=>{
+    watchEffect(() => {
       const divs = navItems.value;
       const result = divs.filter(div => div.classList.contains('selected'))[0];
       const {width} = result.getBoundingClientRect();
@@ -64,9 +66,8 @@ export default {
       const {left:left2} =result.getBoundingClientRect()
       const left = left2 - left1
       indicator.value.style.left  = left +'px'
-    }
-    onMounted(x);
-    onUpdated(x)
+    })
+  })
 
     return {
       defaults,

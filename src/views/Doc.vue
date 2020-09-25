@@ -1,6 +1,6 @@
 <template>
     <div class="layout">
-        <Topnav class="nav"/>
+        <Topnav :toggle-menu-button-visible="true" class="nav"/>
         <div class="content">
             <!--asideVisible变化,aside也要变化-->
             <aside v-if='asideVisible'>

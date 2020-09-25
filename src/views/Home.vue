@@ -40,6 +40,7 @@ $border-radius: 4px;
 
 .topnavAndBanner {
   background: linear-gradient(148deg, rgba(243, 246, 252, 1) 0%, rgba(221, 231, 246, 1) 100%);
+  clip-path: ellipse(80% 60% at 50% 40%);
 }
 
 .banner {

@@ -1,11 +1,11 @@
 <template>
     <div class="top-nav">
-        <div class="logo" @click="toggleMenu">
+        <router-link to="/" class="logo" @click="toggleMenu">
           <svg class="icon" >
             <use xlink:href="#icon-airplane"></use>
           </svg>
 
-        </div>
+        </router-link>
 
         <ul class="menu">
             <li>
@@ -54,7 +54,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 10;
+        z-index: 20;
         justify-content: center;
         align-items: center;
         > .logo {

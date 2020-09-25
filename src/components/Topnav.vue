@@ -1,6 +1,11 @@
 <template>
     <div class="top-nav">
-        <div class="logo" @click="toggleMenu">LOGO</div>
+        <div class="logo" @click="toggleMenu">
+          <svg class="icon" >
+            <use xlink:href="#icon-airplane"></use>
+          </svg>
+
+        </div>
 
         <ul class="menu">
             <li>菜单1</li>
@@ -41,6 +46,10 @@
         > .logo {
             max-width: 6em;
             margin-right: auto;
+          >svg{
+            width: 32px;
+            height: 32px;
+          }
         }
 
         > .menu {

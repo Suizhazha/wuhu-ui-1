@@ -4,7 +4,6 @@
           <svg class="icon" >
             <use xlink:href="#icon-airplane"></use>
           </svg>
-
         </router-link>
 
         <ul class="menu">
@@ -12,7 +11,7 @@
               <a href="https://github.com/Suizhazha">Github</a>
               </li>
           <li>
-        <router-link to="/doc">文档</router-link>
+        <router-link to="/doc/intro">文档</router-link>
           </li>
         </ul>
         <svg v-if="toggleMenuButtonVisible"

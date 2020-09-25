@@ -3,10 +3,10 @@
     <div class="topnavAndBanner">
       <Topnav/>
       <div class="banner">
-        <h1>芜湖UI</h1>
+        <h1>WUHU UI</h1>
         <h2>基于Vue3.0的UI框架</h2>
         <p class="actions ">
-          <router-link to="/doc">开始</router-link>
+          <router-link to="/doc/get-started">开始</router-link>
         </p>
       </div>
     </div>

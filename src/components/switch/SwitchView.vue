@@ -10,7 +10,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>{{Switch1.__sourceCode}}</pre>
+        <pre class="language-html" v-html="Prism.highlight(Switch1.__sourceCode,Prism.languages.html,'html')"/>
 
       </div>
     </div>
@@ -24,7 +24,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>{{Switch2.__sourceCode}}</pre>
+        <pre class="language-html" v-html="Prism.highlight(Switch2.__sourceCode,Prism.languages.html,'html')"/>
       </div>
     </div>
   </div>
@@ -37,13 +37,15 @@
   import Switch1 from '../../components/switch/Switch1.vue'
   import Switch2 from './Switch2.vue';
   import {ref} from 'vue'
+  import 'prismjs';
+  import 'prismjs/themes/prism-solarizedlight.css'
 
   export default {
     components: {Switch2, Switch1,Button},
     setup() {
         const bool = ref(false)
         return {
-        bool,Switch2,Switch1
+        bool,Switch2,Switch1, Prism
       }
     }
   }

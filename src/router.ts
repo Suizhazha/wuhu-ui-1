@@ -4,15 +4,14 @@ import SwitchDemo from './components/SwitchDemo.vue';
 import ButtonDemo from './components/ButtonDemo.vue';
 import DialogDemo from "./components/DialogDemo.vue";
 import TabsDemo from "./components/TabsDemo.vue";
-import Intro from './views/Intro.vue'
-import GetStarted from './views/GetStarted.vue'
-import Install from './views/Install.vue'
+import Markdown from './components/Markdown.vue'
+import {h} from 'vue'
 
 //创建hash型路由，还有创建内存型路由和history型路由
 import {createRouter, createWebHashHistory} from 'vue-router';
 
 const history = createWebHashHistory()
-
+const md = filename => h(Markdown, { path: `../markdown/${filename}.md`, key: filename })
 //createRouter函数接收options: RouterOptions
 //RouterOptions又包括history和router
 
@@ -21,9 +20,9 @@ const history = createWebHashHistory()
   routes: [
     { path: '/', component: Home },
     { path: '/doc', component: Doc,children:[
-        {path:'intro',component:Intro},
-        {path: 'get-started',component: GetStarted},
-        {path: 'install',component: Install},
+        {path:'intro',component:md('intro')},
+        {path: 'get-started',component: md('getStarted')},
+        {path: 'install',component: md('install')},
         { path: "switch", component: SwitchDemo },
         { path: "button", component: ButtonDemo },
         { path: "dialog", component: DialogDemo },

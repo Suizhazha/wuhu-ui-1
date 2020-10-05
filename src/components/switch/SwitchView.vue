@@ -8,25 +8,16 @@
 </template>
 
 <script lang="ts">
-import {ref} from 'vue'
 
-  import Button from '../../lib/Button.vue'
   import Switch1 from '../../components/switch/Switch1.vue'
   import Switch2 from '../../components/switch/Switch2.vue'
   import Demo from '../Demo.vue';
 
-
-  import 'prismjs';
-  import 'prismjs/themes/prism-solarizedlight.css'
-  const Prism = (window as any).Prism
-
-
   export default {
-    components: {Demo,Button},
+    components: {Demo},
     setup() {
-        const bool = ref(false)
         return {
-        bool,Switch2,Switch1, Prism
+       Switch2,Switch1
       }
     }
   }

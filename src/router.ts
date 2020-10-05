@@ -1,8 +1,8 @@
 import Home from './views/Home.vue'
 import Doc from './views/Doc.vue'
 import SwitchView from './components/switch/SwitchView.vue';
-import ButtonDemo from './components/ButtonDemo.vue';
-import DialogDemo from "./components/DialogDemo.vue";
+import ButtonDemo from './components/button/ButtonView.vue';
+import DialogDemo from "./components/dialog/DialogView.vue";
 import TabsDemo from "./components/TabsDemo.vue";
 import Markdown from './components/Markdown.vue'
 import {h} from 'vue'
@@ -25,7 +25,6 @@ const md = filename => h(Markdown, { path: `../markdown/${filename}.md`, key: fi
         {path: 'install',component: md('install')},
         { path: "switch", component: SwitchView },
         { path: "button", component: ButtonDemo },
-        { path: "dialog", component: DialogDemo },
         { path: "tabs", component: TabsDemo }
       ]}
   ]

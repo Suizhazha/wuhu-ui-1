@@ -1,6 +1,6 @@
 <template>
   <div>
- 	  <h1>Button 示例</h1>
+ 	  <h1>Button 组件示例</h1>
     <Demo :component="Button1" />
     <Demo :component="Button5" />
     <Demo :component="Button3" />

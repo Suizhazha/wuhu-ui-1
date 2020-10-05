@@ -6,8 +6,8 @@
            v-for="(t,index) in titles"
            :key="index"
            :ref='el =>{
-             if (el)
-               navItems[index] =el
+             if (t===selected)
+               selectedItem=el
            }'
            @click="select(t)"
       >{{ t }}
@@ -52,18 +52,16 @@ export default {
     const select = (title: string) => {
       context.emit('update:selected', title);
     };
-    const navItems = ref<HTMLDivElement[]>([]);
+    const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
 
   onMounted(()=>{
     watchEffect(() => {
-      const divs = navItems.value;
-      const result = divs.filter(div => div.classList.contains('selected'))[0];
-      const {width} = result.getBoundingClientRect();
+      const {width} = selectedItem.value.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
       const {left:left1} =container.value.getBoundingClientRect()
-      const {left:left2} =result.getBoundingClientRect()
+      const {left:left2} =selectedItem.value.getBoundingClientRect();
       const left = left2 - left1
       indicator.value.style.left  = left +'px'
     })
@@ -73,7 +71,7 @@ export default {
       defaults,
       titles,
       select,
-      navItems,
+      selectedItem,
       indicator,
       container
     };

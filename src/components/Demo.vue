@@ -6,16 +6,16 @@
    </div>
 
    <div class="demo-actions">
-     <Button>查看代码</Button>
+     <Button @click="codeVisible = !codeVisible">查看代码</Button>
    </div>
-   <div class="demo-code">
+   <div class="demo-code" v-if="codeVisible">
      <pre class="language-html" v-html="Prism.highlight(component.__sourceCode,Prism.languages.html,'html')"/>
    </div>
  </div>
 </template>
 
 <script lang="ts">
-
+import {ref} from 'vue'
 import 'prismjs';
 import 'prismjs/themes/prism.css'
 import Button from '../lib/Button.vue';
@@ -26,8 +26,9 @@ export default {
 component:Object
   },
   setup(){
+    const codeVisible = ref (false)
     return {
-      Prism
+      Prism,codeVisible
     }
   }
 }

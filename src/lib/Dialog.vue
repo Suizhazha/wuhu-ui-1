@@ -1,24 +1,24 @@
 <template>
-<template v-if="visible">
-  <Teleport to="body">
-    <div class="wuhu-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="wuhu-dialog-wrapper">
-      <div class="wuhu-dialog">
-        <header>
-          <slot name="title" />
-          <span @click="close" class="wuhu-dialog-close"></span>
-        </header>
-        <main>
-          <slot name="content" />
-        </main>
-        <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
+  <template v-if="visible">
+    <Teleport to="body">
+      <div class="wuhu-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="wuhu-dialog-wrapper">
+        <div class="wuhu-dialog">
+          <header>
+            <slot name="title" />
+            <span @click="close" class="wuhu-dialog-close"></span>
+          </header>
+          <main>
+            <slot name="content" />
+          </main>
+          <footer>
+            <Button level="main" @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
-  </Teleport>
-</template>
+    </Teleport>
+  </template>
 </template>
 
 <script lang="ts">
@@ -75,7 +75,7 @@ export default {
 $radius: 4px;
 $border-color: #d9d9d9;
 
-.gulu-dialog {
+.wuhu-dialog {
   background: white;
   border-radius: $radius;
   box-shadow: 0 0 3px fade_out(black, 0.5);

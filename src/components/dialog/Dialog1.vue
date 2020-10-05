@@ -22,6 +22,7 @@ import {
 } from 'vue'
 import Button from '../../lib/Button.vue';
 import Dialog from '../../lib/Dialog.vue';
+
 export default {
   components: {
     Dialog,

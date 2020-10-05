@@ -59,7 +59,8 @@ $color:#091841;
 }
 .features {
   margin: 64px auto;
-  width: 400px;
+  padding: 0 16px;
+
   @media (min-width: 800px) {
     width: 800px;
   }

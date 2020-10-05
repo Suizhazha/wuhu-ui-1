@@ -3,7 +3,7 @@ import Doc from './views/Doc.vue'
 import SwitchView from './components/switch/SwitchView.vue';
 import ButtonView from './components/button/ButtonView.vue';
 import DialogView from "./components/dialog/DialogView.vue";
-import TabsDemo from "./components/tab/Tabs1.vue";
+import TabsView from "./components/tab/TabsView.vue";
 import Markdown from './components/Markdown.vue'
 import {h} from 'vue'
 
@@ -32,7 +32,7 @@ const md = string=> h(Markdown, { content: string, key: string })
         { path: "switch", component: SwitchView },
         { path: "button", component: ButtonView },
         { path: "dialog", component: DialogView },
-        { path: "tabs", component: TabsDemo }
+        { path: "tabs", component: TabsView }
       ]}
   ]
 
